@@ -27,7 +27,7 @@ class SectionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacene una seccion recién creado en el almacenamiento.
      */
     public function store(Request $request)
     {
@@ -70,12 +70,19 @@ class SectionController extends Controller
     {
         //
     }
+
+    /**
+     * Muestra los datos de todas las secciones.
+     */
     public function mostrar()
     {
         $secciones = Section::select('id', 'title','subtitle','imagen')->get();
         return $secciones;
     }
 
+    /**
+     * Muesytra solamente los titulos de las secciones
+     */
     public function secciones()
     {
         $tituloSecciones = Section::select('id','title')->get();
@@ -91,7 +98,7 @@ class SectionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Modifica una seccion especifica
      */
     public function update(Request $request, $id)
     {
@@ -137,7 +144,7 @@ class SectionController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una seccion especifica.
      */
     public function destroy(Request $request, $id)
     {

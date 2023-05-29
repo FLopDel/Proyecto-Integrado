@@ -28,7 +28,7 @@ class ValorationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacene una valoracion recién creado en el almacenamiento.
      */
     public function store(Request $request)
     {
@@ -63,7 +63,7 @@ class ValorationController extends Controller
 
     
     /**
-     * Store a newly created resource in storage.
+     * Inhabilita la visualizacion de una valoracion.
      */
     public function desactived($id)
     {
@@ -86,14 +86,16 @@ class ValorationController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * Muestra todas las valoraciones visibles ordenadas
      */
     public function mostrar()
     {
         $valoracion = Valoration::select('id','name', 'comments','desactived','created_at')->where('desactived', 0)->orderByDesc('created_at')->get();
         return $valoracion;
     }
-
+    /**
+     * Muestra todas las valoraciones
+     */
     public function mostrarTodos()
     {
         $valoracion = Valoration::select('id','name', 'comments','desactived','created_at')->get();
@@ -118,7 +120,7 @@ class ValorationController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una valoracion especifica.
      */
     public function destroy($id)
     {

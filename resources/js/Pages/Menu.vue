@@ -51,7 +51,7 @@ export default {
     setup() {
         const seccionMenu = ref([]);
         const datosPlatos = ref([]);
-
+        //Muestra las secciones
         watchEffect(() => {
             axios.get('/secciones')
                 .then(response => {
@@ -62,6 +62,7 @@ export default {
                     console.log('Error al obtener los datos:', error);
                 });
         });
+        //Muestra las recetas
         watchEffect(() => {
             axios.get('/datosPlatos')
                 .then(response => {

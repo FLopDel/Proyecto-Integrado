@@ -49,52 +49,5 @@ import Layout from '@/Layouts/Layout.vue';
 </template>
 
 
-<!-- <style scoped>
-/* Estilos para tablets y dispositivos con mayor resolución */
-@media screen and (min-width: 1025) {
-    #cajaGrande {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2rem;
-        align-items: center;
-    }
-
-    #cajaMapa {
-        margin-bottom: 0;
-        height: auto;
-    }
-
-    #information {
-        padding: 1rem;
-        text-align: center;
-    }
-
-    #information div {
-        margin-bottom: 2rem;
-    }
-
-    #information h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    #information p {
-        font-size: 1.2rem;
-    }
-}
-
-.info {
-    @apply text-white underline text-xl font-bold mb-2;
-}
-
-.parrafo {
-    @apply text-white text-base;
-}
-
-.cajaInformacion {
-    @apply bg-gray-800 flex m-auto flex-col justify-center w-4/5 h-auto text-gray-400 border-4 text-center;
-}
-</style> -->
-
 
   

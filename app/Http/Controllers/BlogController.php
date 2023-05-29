@@ -27,7 +27,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacene un recurso recién creado en el almacenamiento.
      */
     public function store(Request $request)
     {        
@@ -76,6 +76,9 @@ class BlogController extends Controller
         //
     }
 
+    /**
+     * Muestra todas las noticias
+     */
     public function mostrar()
     {
         $blogs = Blog::select('id', 'name','title','date','message','imagen')->get();
@@ -99,7 +102,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar un noticia especifica
      */
     public function destroy($id)
     {

@@ -219,7 +219,7 @@ export default {
     },
     setup() {
         const noticiasClientes = ref([]);
-
+        //Peticion muestra de datos
         watchEffect(() => {
             axios.get('/blogs')
                 .then(response => {

@@ -7,22 +7,7 @@
                         <img id="logo" src="../../img/nombre.png" class="h-8 mr-3 animate-spin" alt="logo" />
                     </a>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                    <div>
-                        <ul class="text-white dark:text-white font-medium">
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline font-baskerville underline">Soporte Cliente</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="text-white dark:text-white font-medium">
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline font-baskerville underline">Politica de privacidad</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">

@@ -1026,7 +1026,7 @@ export default {
         const recetas = ref([]);
         const noticias = ref([]);
 
-
+        //Muestra las valoraciones
         watchEffect(() => {
             axios.get('/opiniones')
                 .then(response => {
@@ -1037,6 +1037,7 @@ export default {
                     console.log('Error al obtener los datos:', error);
                 });
         });
+        //Muestra las secciones
         watchEffect(() => {
             axios.get('/secciones')
                 .then(response => {
@@ -1047,6 +1048,7 @@ export default {
                     console.log('Error al obtener los datos:', error);
                 });
         });
+        //Muestra las reservas
         watchEffect(() => {
             axios.get('/reserva')
                 .then(response => {
@@ -1056,6 +1058,7 @@ export default {
                     console.log('Error al obtener los datos:', error);
                 });
         });
+        //Muestra las datos de las recetas
         watchEffect(() => {
             axios.get('/datosPlatos')
                 .then(response => {
@@ -1066,6 +1069,7 @@ export default {
                     console.log('Error al obtener los datos:', error);
                 });
         });
+        //Muestra las noticias
         watchEffect(() => {
             axios.get('/noticias')
                 .then(response => {

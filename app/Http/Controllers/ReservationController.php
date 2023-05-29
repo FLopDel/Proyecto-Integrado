@@ -30,7 +30,7 @@ class ReservationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacene una reserva recién creado en el almacenamiento.
      */
     public function store(Request $request)
     {
@@ -97,29 +97,25 @@ class ReservationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra todos los datos de las reservas
      */
     public function mostrar()
     {
         $comentarios = Reservation::with('user')->select('id_user', 'phone', 'date', 'time')->get();
         return $comentarios;
     }
-
+    /**
+     * Muestra todos la fecha de las reservas
+     */
     public function fecha()
     {
         $comentarios = Reservation::select('id','date')->get();
         return $comentarios;
     }
 
-    // public function numsRegistros()
-    // {
-    //     $numRegistros = DB::table('reservations')
-    //         ->select(DB::raw('date, count(*) as numRegistros'))
-    //         ->groupBy('date')
-    //         ->get();
-    //     return $numRegistros;
-    // }
-
+    /**
+     * Muestra el numero de reservas que hay por fecha
+     */
     public function numReservas()
     {
         $fechaInicio = Carbon::now()->addDays(7)->format('Y-m-d');

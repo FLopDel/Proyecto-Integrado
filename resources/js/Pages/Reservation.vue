@@ -130,8 +130,8 @@ export default {
                     people: this.people,
                     date: this.date,
                     time: this.time
-                };
-
+                };  
+                //inserta los datos a la bbdd cuando son validos
                 axios.post('/reservation', datosReserva)
                     .then(response => {
                         console.log(response.data)

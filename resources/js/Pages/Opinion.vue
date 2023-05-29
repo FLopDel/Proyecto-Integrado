@@ -118,7 +118,7 @@ export default {
                     name: this.name,
                     comments: this.comments
                 };
-
+                //Inserta los datos a la bbdd cuando son validos
                 axios.post('/opinion', datosComentario)
                     .then(response => {
                         this.comentariosPersonas = response.data.comentarios;
@@ -158,7 +158,7 @@ export default {
 
     setup() {
         const comentariosPersonas = ref([]);
-
+        //Muestra las valoraciones
         watchEffect(() => {
             axios.get('/opiniones')
                 .then(response => {

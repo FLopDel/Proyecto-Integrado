@@ -28,10 +28,8 @@ class MenuController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacene un plato recién creado en el almacenamiento.
      */
-
-     //Funcion para crear un nuevo plato
      public function store(Request $request)
      {
         try{
@@ -64,14 +62,18 @@ class MenuController extends Controller
         }
      }
 
-    //Muestra los datos los platos que hay en el menu
+     /**
+     * Muestra los datos los platos que hay en el menu.
+     */
     public function mostrar()
     {
         $datosPlatos = Menu::select('id','name', 'price','ingredients','id_section')->get();
         return $datosPlatos;
     }
 
-    //Numero de platos por cada seccion
+    /**
+     * Numero de platos por cada seccion
+     */
     public function numPlatos()
     {
         $datosPlatos = DB::table('menus')
@@ -93,7 +95,7 @@ class MenuController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Modificar datos de un plato especifico.
      */
     public function update(Request $request, $id)
     {
@@ -121,7 +123,7 @@ class MenuController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un plato especifico
      */
     public function destroy($id)
     {
