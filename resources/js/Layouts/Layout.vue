@@ -196,6 +196,9 @@ export default {
 .campo {
     @apply appearance-none text-center block w-auto bg-gray-200/30 placeholder:text-black placeholder:text-xl border-t-0  border-r-0 border-l-0 text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
 }
+.campos {
+    @apply appearance-none text-center block w-full bg-gray-200/30 placeholder:text-black placeholder:text-xl text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
 
 .fechaHora{
     @apply appearance-none text-center block w-auto bg-gray-200/30 placeholder:text-black placeholder:text-xl border-t-0  border-r-0 border-l-0 text-gray-700 border border-black rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;

@@ -115,10 +115,11 @@
                     <tr class="trImpar">
                         <td class="td"><span class="span">Titulo</span>{{ seccion.title }}</td>
                         <td class="td"><span class="span">Lema</span>{{ seccion.subtitle }}</td>
-                        <td class="td"><span class="span">Imagen</span>{{ seccion.imagen }}</td>
-                        <td class="td "><button class="bg-red-600 p-2 text-white rounded text-sm uppercase"
+                        <!-- <td class="td"><span class="span">Imagen</span>{{ seccion.imagen }}</td> -->
+                        <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/secciones/' + seccion.imagen"></td>
+                        <td class="td "><button class="bg-red-600 p-2 text-center text-white rounded text-sm uppercase"
                                 @click="eliminarSecciones(seccion.id)">Eliminar</button></td>
-                        <td class="td "><button class="bg-red-600 p-2 text-white rounded text-sm uppercase"
+                        <td class="td "><button class="bg-red-600 p-2 text-center text-white rounded text-sm uppercase"
                                 :data-id="seccion.id" @click="modal(seccion)">Editar</button></td>
                     </tr>
                 </tbody>
@@ -136,7 +137,7 @@
                             :placeholder="seccionModificada.subtitle" required>
                         <br>
                         <label for="imagen">Imagen:</label>
-                        <input class="campo" id="grid-last-name" type="file" :v-model="seccionModificadaimagen"
+                        <input class="campos" id="grid-last-name" type="file" :v-model="seccionModificadaimagen"
                             @change="cargarImagenSeccionModificada" required>
                         <br>
                         <button class="border-2 border-black p-4 rounded bg-blue-500 font-semibold text-black"
@@ -184,7 +185,8 @@
                         <td class="td"><span class="span">Noticia</span>{{ noticia.title }}</td>
                         <td class="td"><span class="span">Mensaje</span>{{ noticia.message }}</td>
                         <td class="td"><span class="span">Dia</span>{{ noticia.date }}</td>
-                        <td class="td "><span class="span">Imagen</span>{{ noticia.imagen }}</td>
+                        <!-- <td class="td "><span class="span">Imagen</span>{{ noticia.imagen }}</td> -->
+                        <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/blog/' + noticia.imagen"></td>
                         <td class="td "><button class="bg-red-600 p-2 text-white rounded text-sm uppercase"
                                 @click="eliminarNoticia(noticia.id)">Eliminar</button></td>
                     </tr>
@@ -253,14 +255,14 @@
                         <label class="labels" for="grid-last-name">
                             Seccion
                         </label>
-                        <select class="campo" id="grid-last-name" v-model="recetaModificadaid_section">
+                        <select class="campos" id="grid-last-name" v-model="recetaModificadaid_section">
                             <option disabled selected value="">Selecciona una seccion</option>
                             <option v-for="seccion in secciones" :key="seccion.id" :value="seccion.id">{{ seccion.title }}
                             </option>
                         </select>
                         <br>
                         <label for="imagen">Precio:</label>
-                        <input class="campo" id="grid-last-name" type="text" v-model="recetaModificadaprice"
+                        <input class="campos" id="grid-last-name" type="text" v-model="recetaModificadaprice"
                             :placeholder="recetaModificada.price">
                         <br>
                         <button class="border-2 border-black p-4 rounded bg-blue-500 font-semibold text-black"
@@ -299,13 +301,13 @@
                             <label class="labels" for="grid-first-name">
                                 Titulo
                             </label>
-                            <input class="campo" type="text" v-model="title" required>
+                            <input class="campos" type="text" v-model="title" required>
                         </div>
                         <div class="w-full md:w-1/2 px-8">
                             <label class="labels" for="grid-last-name">
                                 Subtitulo
                             </label>
-                            <input class="campo" id="grid-last-name" type="text" v-model="subtitle" required>
+                            <input class="campos" id="grid-last-name" type="text" v-model="subtitle" required>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -313,7 +315,7 @@
                             <label class="labels" for="grid-password">
                                 Imagen
                             </label>
-                            <input class="campo" id="grid-last-name" type="file" ref="imageSeccion"
+                            <input class="campos" id="grid-last-name" type="file" ref="imageSeccion"
                                 @change="cargarImagenSeccion" required>
                         </div>
                     </div>
@@ -342,13 +344,13 @@
                             <label class="labels" for="grid-first-name">
                                 Nombre Plato
                             </label>
-                            <input class="campo" type="text" v-model="name" required>
+                            <input class="campos" type="text" v-model="name" required>
                         </div>
                         <div class="w-full md:w-1/2 px-8">
                             <label class="labels" for="grid-last-name">
                                 Precio
                             </label>
-                            <input class="campo" id="grid-last-name" type="text" v-model="price" required>
+                            <input class="campos" id="grid-last-name" type="text" v-model="price" required>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -356,14 +358,14 @@
                             <label class="labels" for="grid-first-name">
                                 Ingredientes
                             </label>
-                            <textarea class="campo" id="grid-password" type="text" v-model="ingredients"
+                            <textarea class="campos" id="grid-password" type="text" v-model="ingredients"
                                 required></textarea>
                         </div>
                         <div class="w-full md:w-1/2 px-8">
                             <label class="labels" for="grid-last-name">
                                 Seccion
                             </label>
-                            <select class="campo" id="grid-last-name" v-model="id_section" required>
+                            <select class="campos" id="grid-last-name" v-model="id_section" required>
                                 <option v-for="seccion in secciones" :key="seccion.id" :value="seccion.id">{{ seccion.title
                                 }}</option>
                             </select>
