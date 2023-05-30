@@ -34,8 +34,8 @@ class ValorationController extends Controller
     {
         try{
             $validatedData = $request->validate([
-                'name' => ['required', 'regex:/^[A-Za-z]+$/'],
-                'comments' => ['required', 'regex:/^[A-Za-z0-9!.,]+$/'],
+                'name' => ['required', 'regex:/[A-Za-z]+$/'],
+                'comments' => ['required', 'regex:/[A-Za-z0-9!.,]+$/'],
             ]);
 
             $datosComentario = new Valoration();

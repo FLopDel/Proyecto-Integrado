@@ -82,15 +82,15 @@
             <div class="flex justify-center mt-4">
                 <nav>
                     <ul class="flex justify-center list-none p-0">
-                        <li class="pageitem" :class="{ disabled: currentPage === 1 }">
-                            <button class="pagelink" @click="previousPage">Anterior</button>
+                        <li class="pageitem" :class="{ disabled: currentPageReservas === 1 }">
+                            <button class="pagelink" @click="previousPageReservas">Anterior</button>
                         </li>
-                        <li class="pageitem" v-for="pageNumber in totalPages" :key="pageNumber"
-                            :class="{ active: pageNumber === currentPage }">
-                            <button class="pagelink" @click="goToPage(pageNumber)">{{ pageNumber }}</button>
+                        <li class="pageitem" v-for="pageNumber in totalPagesReservas" :key="pageNumber"
+                            :class="{ active: pageNumber === currentPageReservas }">
+                            <button class="pagelink" @click="goToPageReservas(pageNumber)">{{ pageNumber }}</button>
                         </li>
-                        <li class="pageitem" :class="{ disabled: currentPage === totalPages }">
-                            <button class="pagelink" @click="nextPage">Siguiente</button>
+                        <li class="pageitem" :class="{ disabled: currentPageReservas === totalPagesReservas }">
+                            <button class="pagelink" @click="nextPageReservas">Siguiente</button>
                         </li>
                     </ul>
                 </nav>
@@ -115,7 +115,6 @@
                     <tr class="trImpar">
                         <td class="td"><span class="span">Titulo</span>{{ seccion.title }}</td>
                         <td class="td"><span class="span">Lema</span>{{ seccion.subtitle }}</td>
-                        <!-- <td class="td"><span class="span">Imagen</span>{{ seccion.imagen }}</td> -->
                         <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/secciones/' + seccion.imagen"></td>
                         <td class="td "><button class="bg-red-600 p-2 text-center text-white rounded text-sm uppercase"
                                 @click="eliminarSecciones(seccion.id)">Eliminar</button></td>
@@ -185,7 +184,6 @@
                         <td class="td"><span class="span">Noticia</span>{{ noticia.title }}</td>
                         <td class="td"><span class="span">Mensaje</span>{{ noticia.message }}</td>
                         <td class="td"><span class="span">Dia</span>{{ noticia.date }}</td>
-                        <!-- <td class="td "><span class="span">Imagen</span>{{ noticia.imagen }}</td> -->
                         <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/blog/' + noticia.imagen"></td>
                         <td class="td "><button class="bg-red-600 p-2 text-white rounded text-sm uppercase"
                                 @click="eliminarNoticia(noticia.id)">Eliminar</button></td>
@@ -405,7 +403,7 @@ export default {
             currentPageComentarios: 1,
             currentPageSecciones: 1,
             currentPageNoticias: 1,
-            currentPage: 1,
+            currentPageReservas: 1,
             itemsPerPage: 5,
             comentariosPersonas: [],
             reservas: [],
@@ -917,21 +915,25 @@ export default {
         goToPageNoticias(pageNumber) {
             this.currentPageNoticias = pageNumber;
         },
+
+
         //boton anterior de la paginacion tabla reservas
-        previousPage() {
-            if (this.currentPage > 1) {
-                this.currentPage--;
+        previousPageReservas() {
+            if (this.currentPageReservas > 1) {
+                this.currentPageReservas--;
             }
         },
         //boton siguiente de la paginacion tabla reservas
-        nextPage() {
-            if (this.currentPage < this.totalPages) {
-                this.currentPage++;
+        nextPageReservas() {
+            if (this.currentPageReservas < this.totalPagesReservas) {
+                this.currentPageReservas++;
             }
         },
-        goToPage(pageNumber) {
-            this.currentPage = pageNumber;
+        goToPageReservas(pageNumber) {
+            this.currentPageReservas = pageNumber;
         },
+
+
         //boton anterior de la paginacion tabla secciones
         previousPageSecciones() {
             if (this.currentPageSecciones > 1) {
@@ -947,6 +949,8 @@ export default {
         goToPageSecciones(pageNumber) {
             this.currentPageSecciones = pageNumber;
         },
+
+
         //boton anterior de la paginacion tabla recetas
         previousPageRecetas() {
             if (this.currentPageRecetas > 1) {
@@ -981,7 +985,7 @@ export default {
         },
         //paginacion sobre la tabla de reservas
         paginatedReservas() {
-            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+            const startIndex = (this.currentPageReservas - 1) * this.itemsPerPage;
             const endIndex = startIndex + this.itemsPerPage;
             return this.reservas.slice(startIndex, endIndex);
         },
