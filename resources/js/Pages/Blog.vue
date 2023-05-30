@@ -152,13 +152,13 @@ export default {
         },
         validarFormularioNoticia() {
             this.isValid = true;
-            if (this.name === '' || (!/[A-Za-z]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
                 this.isValid = false;
             }
-            if (this.title === '' || (!/[A-Za-z\s]+$/.test(this.title))) {
+            if (this.title === '' || (!/^[A-Za-z\s]+$/.test(this.title))) {
                 this.isValid = false;
             }
-            if (this.message === '' || (!/[A-Za-z0-9.,!]$/.test(this.message))) {
+            if (this.message === '' || (!/^[A-Za-z0-9.,!]$/.test(this.message))) {
                 this.isValid = false;
             }
 

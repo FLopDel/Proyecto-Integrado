@@ -525,10 +525,10 @@ export default {
         //validacion seccion
         validarFormularioSeccion() {
             this.isValidSeccion = true;
-            if (this.title === '' || (!/[A-Za-z]+$/.test(this.title))) {
+            if (this.title === '' || (!/^[A-Za-z]+$/.test(this.title))) {
                 this.isValidSeccion = false;
             }
-            if (this.subtitle === '' || (!/[A-Za-z]+$/.test(this.subtitle))) {
+            if (this.subtitle === '' || (!/^[A-Za-z]+$/.test(this.subtitle))) {
                 this.isValidSeccion = false;
             }
             if (this.imagen === '') {
@@ -587,11 +587,11 @@ export default {
         //validacion plato
         validarFormularioPlato() {
             this.isValidPlato = true;
-            if (this.name === '' || (!/[A-Za-z\s]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
                 this.isValidPlato = false;
                 return this.isValidPlato
             }
-            if (this.ingredients === '' || (!/[A-Za-z]+$/.test(this.ingredients))) {
+            if (this.ingredients === '' || (!/^[A-Za-z]+$/.test(this.ingredients))) {
                 this.isValidPlato = false;
                 return this.isValidPlato
             }

@@ -39,7 +39,7 @@ class ReservationController extends Controller
             $userId = Auth::id();
 
             $validatedData = $request->validate([
-                'phone' => ['required', 'regex:/[0-9]{9}$/'],
+                'phone' => ['required', 'regex:/^[0-9]{9}$/'],
                 'people' => ['required', 'numeric', 'between:2,12'],
                 'date' => ['required'],
                 'time' => ['required'],
