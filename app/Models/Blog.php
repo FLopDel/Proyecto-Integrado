@@ -9,5 +9,5 @@ class Blog extends Model
 {
     public $timestamps = false;
     use HasFactory;
-    protected $fillable = ['id','name','title','message','date','imagen'];
+    protected $fillable = ['id','id_user','name','title','message','date','imagen'];
 }

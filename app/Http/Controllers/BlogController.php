@@ -35,25 +35,25 @@ class BlogController extends Controller
             $userId = Auth::id();
 
             $validatedData = $request->validate([
-                'name' => ['required', 'regex:/[A-Za-z]+$/'],
+                'name' => ['required', 'regex:/[A-Za-z\s]+$/'],
                 'title' => ['required', 'regex:/[A-Za-z\s]+$/'],
-                'message' => ['required', 'regex:/[A-Za-z0-9!.,]+$/'],
+                'message' => ['required', 'regex:/[A-Za-z0-9\s]+$/'],
             ]);
 
             $blog = new Blog();
-            // $blog->id = $userId;
+            $blog->id_user = $userId;
             $blog->name = $request->input('name');
             $blog->title = $request->input('title');
             $blog->imagen = $request->file('imagen')->getClientOriginalName();
             $blog->date = $request->input('date');
             $blog->message = $request->input('message');
-
+            
             $blog->save();
             if ($request->hasFile('imagen')) {
                 $imagen = $request->file('imagen');
                 Storage::build(storage_path("/blog"))->put($blog->imagen, file_get_contents($imagen));
 
-                $blogs = Blog::select('id', 'name','title','date','message','imagen')->get();
+                $blogs = Blog::select('id', 'id_user', 'name','title','date','message','imagen')->get();
                 return response()->json([
                     'comentarios' => $blogs,
                     'error' => false,
