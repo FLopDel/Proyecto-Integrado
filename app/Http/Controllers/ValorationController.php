@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests\Validation;
+use Illuminate\Support\Facades\Auth;
 
 
 class ValorationController extends Controller
@@ -32,31 +33,39 @@ class ValorationController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            $validatedData = $request->validate([
-                'name' => ['required', 'regex:/[A-Za-z]+$/'],
-                'comments' => ['required', 'regex:/[A-Za-z0-9!.,]+$/'],
+        if(Auth::check()){
+
+            try{
+                $validatedData = $request->validate([
+                    'name' => ['required', 'regex:/[A-Za-z\s]+$/'],
+                    'comments' => ['required', 'regex:/[A-Za-z0-9\s]+$/'],
+                ]);
+
+                $datosComentario = new Valoration();
+                $datosComentario->name = $request->input('name');
+                $datosComentario->comments = $request->input('comments');
+                $datosComentario->desactived = 0;
+                $datosComentario->save();
+                $comentarios = Valoration::select('id','name', 'comments','created_at')->where('desactived', 0)->orderByDesc('created_at')->get();
+
+                return response()->json([
+                    'comentarios' => $comentarios,
+                    'error' => false,
+                    'message' => 'Sección creada exitosamente'
+                ], 200);
+
+            }catch (\Exception $e) {
+                return response()->json([
+                    'error' => true,
+                    'message' => 'Error al crear la sección',
+                    'error_message' => $e->getMessage()
+                ], 500);
+            }
+        }else{
+            return response()->json([
+                'logeado' => false,
+                'msg' => 'Necesitas estar registrado',
             ]);
-
-            $datosComentario = new Valoration();
-            $datosComentario->name = $request->input('name');
-            $datosComentario->comments = $request->input('comments');
-            $datosComentario->desactived = 0;
-            $datosComentario->save();
-            $comentarios = Valoration::select('id','name', 'comments','created_at')->where('desactived', 0)->orderByDesc('created_at')->get();
-
-            return response()->json([
-                'comentarios' => $comentarios,
-                'error' => false,
-                'message' => 'Sección creada exitosamente'
-            ], 200);
-
-        }catch (\Exception $e) {
-            return response()->json([
-                'error' => true,
-                'message' => 'Error al crear la sección',
-                'error_message' => $e->getMessage()
-            ], 500);
         }
     }
 

@@ -104,10 +104,10 @@ export default {
     methods: {
         validarFormulario() {
             this.isValid = true;
-            if (this.name === '' || (!/^[A-Za-z]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
                 this.isValid = false;
             }
-            if (this.comments === '' || (!/^[A-Za-z0-9.,!]+$/.test(this.comments))) {
+            if (this.comments === '' || (!/^[A-Za-z0-9\s]+$/.test(this.comments))) {
                 this.isValid = false;
             }
             return this.isValid;
@@ -132,6 +132,16 @@ export default {
                                 confirmButtonClass: 'bg-sweetalert-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
                             }).then(function () {
                                 // window.location = "/opinion";
+                            });
+                        }
+                        if (response.data.logeado) {
+                            Swal({
+                                title: '¡Debe de iniciar sesión!',
+                                text: 'Redirigiendo al login',
+                                icon: 'error',
+                                confirmButtonClass: 'bg-sweetalert-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
+                            }).then(function () {
+                                window.location = '/login';
                             });
                         }
                     });
