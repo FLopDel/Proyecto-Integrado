@@ -37,7 +37,7 @@ class BlogController extends Controller
             $validatedData = $request->validate([
                 'name' => ['required', 'regex:/[A-Za-z\s]+$/'],
                 'title' => ['required', 'regex:/[A-Za-z\s]+$/'],
-                'message' => ['required', 'regex:/[A-Za-z0-9\s]+$/'],
+                'message' => ['required', 'regex:/[A-Za-z0-9.,!\s]+$/'],
             ]);
 
             $blog = new Blog();
@@ -47,7 +47,7 @@ class BlogController extends Controller
             $blog->imagen = $request->file('imagen')->getClientOriginalName();
             $blog->date = $request->input('date');
             $blog->message = $request->input('message');
-            
+
             $blog->save();
             if ($request->hasFile('imagen')) {
                 $imagen = $request->file('imagen');
