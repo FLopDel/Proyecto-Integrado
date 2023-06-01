@@ -44,6 +44,7 @@ class ReservationController extends Controller
                 'date' => ['required'],
                 'time' => ['required'],
             ]);
+
             $people = $request->input('people');
             $date = $request->input('date');
             $time = $request->input('time');
@@ -53,10 +54,10 @@ class ReservationController extends Controller
             $reservationExists = Reservation::where('id_user', $userId)
                 ->where('date', $date)
                 ->where('time', $time)
-                ->exists();
-                        
+                ->exists();               
 
-            if ((intval($sumPeople) + $people) <= 100 && (!$reservationExists)){
+            
+            if ((intval($sumPeople) + $people) <= 100 && (!$reservationExists) && ($validatedData['date'] >= now()->toDateString())){
                 $reservation = new Reservation;
                 $reservation->id_user = $userId;
                 $reservation->phone = $request->input('phone');
@@ -67,12 +68,13 @@ class ReservationController extends Controller
                 $reservation->save();
             
                 return response()->json([
-                    'error' => false,
+                    'date' => false,
                     'msg' => 'Reserva correcta',
                 ]);
             } else {
                 return response()->json(
                 [
+                    'fecha' => true,
                     'error' => true,
                     'aforo' => true,
                     'msg' => 'La reserva ya existe o se ha alcanzado el límite de personas',

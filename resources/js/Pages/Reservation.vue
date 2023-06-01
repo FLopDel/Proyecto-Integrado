@@ -177,6 +177,16 @@ export default {
                                 // window.location = "/login";
                             });
                         }
+
+                        if (response.data.fecha) {
+                            swal({
+                                title: "!No puede reservar antes!",
+                                text: "de la fecha actual",
+                                icon: "warning"
+                            }).then(function () {
+                                // window.location = "/login";
+                            });
+                        }
                     });
                 this.phone = '';
                 this.date = '';
