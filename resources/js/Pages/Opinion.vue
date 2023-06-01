@@ -134,7 +134,7 @@ export default {
                                 // window.location = "/opinion";
                             });
                         }
-                        if (response.data.logeado) {
+                        if (!response.data.logeado) {
                             Swal({
                                 title: '¡Debe de iniciar sesión!',
                                 text: 'Redirigiendo al login',

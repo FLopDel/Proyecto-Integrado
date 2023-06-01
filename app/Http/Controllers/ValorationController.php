@@ -51,13 +51,13 @@ class ValorationController extends Controller
                 return response()->json([
                     'comentarios' => $comentarios,
                     'error' => false,
-                    'message' => 'Sección creada exitosamente'
+                    'message' => 'Comentario creada exitosamente'
                 ], 200);
 
             }catch (\Exception $e) {
                 return response()->json([
                     'error' => true,
-                    'message' => 'Error al crear la sección',
+                    'message' => 'Error al crear el comentario',
                     'error_message' => $e->getMessage()
                 ], 500);
             }

@@ -1,6 +1,6 @@
 <template>
   <div id="menu">
-    <div class="bg-black">
+    <div class="bg-black/80 dark:bg-gray-900">
       <nav class="
                       container
                       px-6

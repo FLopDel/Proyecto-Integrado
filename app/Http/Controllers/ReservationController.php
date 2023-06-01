@@ -77,7 +77,7 @@ class ReservationController extends Controller
                     'fecha' => true,
                     'error' => true,
                     'aforo' => true,
-                    'msg' => 'La reserva ya existe o se ha alcanzado el límite de personas',
+                    'msg' => 'Ya ha reservado o se ha alcanzado el límite de personas',
                 ]);
             }
                 

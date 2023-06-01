@@ -6,6 +6,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BlogController;
+use App\Mail\ReservationConfirmationMail;
+use Illuminate\Support\Facade\Mail;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
