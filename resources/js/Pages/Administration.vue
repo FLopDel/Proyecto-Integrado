@@ -662,6 +662,7 @@ export default {
                 .then(response => {
                     // Resto del código
                     if (response.data.error) {
+                        this.comentariosPersonas = response.data.comentarios;
                         swal({
                             title: "!Ha borrado el comentario!",
                             icon: "success"
