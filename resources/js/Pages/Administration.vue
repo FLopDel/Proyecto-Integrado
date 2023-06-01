@@ -115,7 +115,8 @@
                     <tr class="trImpar">
                         <td class="td"><span class="span">Titulo</span>{{ seccion.title }}</td>
                         <td class="td"><span class="span">Lema</span>{{ seccion.subtitle }}</td>
-                        <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/secciones/' + seccion.imagen"></td>
+                        <td class="td"><img class="w-16 h-auto m-auto"
+                                v-bind:src="'http://lafuenterestaurante.es/storage/secciones/' + seccion.imagen"></td>
                         <td class="td "><button class="bg-red-600 p-2 text-center text-white rounded text-sm uppercase"
                                 @click="eliminarSecciones(seccion.id)">Eliminar</button></td>
                         <td class="td "><button class="bg-red-600 p-2 text-center text-white rounded text-sm uppercase"
@@ -184,7 +185,8 @@
                         <td class="td"><span class="span">Noticia</span>{{ noticia.title }}</td>
                         <td class="td"><span class="span">Mensaje</span>{{ noticia.message }}</td>
                         <td class="td"><span class="span">Dia</span>{{ noticia.date }}</td>
-                        <td class="td"><img class="w-16 h-auto m-auto" v-bind:src="'http://lafuenterestaurante.es/storage/blog/' + noticia.imagen"></td>
+                        <td class="td"><img class="w-16 h-auto m-auto"
+                                v-bind:src="'http://lafuenterestaurante.es/storage/blog/' + noticia.imagen"></td>
                         <td class="td "><button class="bg-red-600 p-2 text-white rounded text-sm uppercase"
                                 @click="eliminarNoticia(noticia.id)">Eliminar</button></td>
                     </tr>
@@ -211,7 +213,6 @@
 
         <div class="m-4">
             <h1 class="font-semibold text-2xl mb-4">Recetas</h1>
-
             <table class="min-w-full border-collapse block md:table">
                 <thead class="block md:table-header-group">
                     <tr

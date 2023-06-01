@@ -158,7 +158,7 @@ export default {
             if (this.title === '' || (!/^[A-Za-z\s]+$/.test(this.title))) {
                 this.isValid = false;
             }
-            if (this.message === '' || (!/^[A-Za-z0-9.,!\s]+$/.test(this.message))) {
+            if (this.message === '' || (!/^[A-Za-z0-9.,\s]+$/.test(this.message))) {
                 this.isValid = false;
             }
 

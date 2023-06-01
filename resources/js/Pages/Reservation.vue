@@ -16,7 +16,7 @@
             <img class="text-center block w-16 h-14 bg-no-repeat mb-0.5 mt-0 m-auto" src="../../img/gorro.png" alt="gorro">
             <div class="linea">
                 <img class="w-32 h-2.5" src="../../img/linea.png" alt="lineas">
-                <h4 class="text-center text-2xl text-black font-normal font-cabin">No esperes</h4>
+                <h4 class="text-center text-xl text-black font-normal font-cabin">No esperes</h4>
                 <img class="w-32 h-2.5" src="../../img/linea.png" alt="lineas">
             </div>
 
