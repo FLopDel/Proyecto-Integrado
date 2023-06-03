@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 
 use App\Models\Reservation;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Validation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // importa la clase DB
+use App\Mail\ReservaMail;
+use Illuminate\Support\Facades\Mail;
 
 
 class ReservationController extends Controller
@@ -37,6 +40,7 @@ class ReservationController extends Controller
         if (Auth::check()) {
     
             $userId = Auth::id();
+            $user = User::find($userId);
 
             $validatedData = $request->validate([
                 'phone' => ['required', 'regex:/[0-9]{9}$/'],
@@ -54,9 +58,9 @@ class ReservationController extends Controller
             $reservationExists = Reservation::where('id_user', $userId)
                 ->where('date', $date)
                 ->where('time', $time)
-                ->exists();               
+                ->exists();      
+                
 
-            
             if ((intval($sumPeople) + $people) <= 100 && (!$reservationExists) && ($validatedData['date'] >= now()->toDateString())){
                 $reservation = new Reservation;
                 $reservation->id_user = $userId;
@@ -67,6 +71,9 @@ class ReservationController extends Controller
                             
                 $reservation->save();
             
+                $reservaMail = new ReservaMail($user->name, $user->last_name, $user->email, $reservation->phone, $reservation->people, $reservation->date, $reservation->time);
+                Mail::to($user->email)->send($reservaMail);
+                
                 return response()->json([
                     'date' => false,
                     'msg' => 'Reserva correcta',
