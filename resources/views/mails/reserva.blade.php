@@ -13,6 +13,8 @@
             background-color: #f5f5f5;
         }
 
+        
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -52,6 +54,12 @@
             max-width: 100%;
             margin-bottom: 16px;
         }
+
+        @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #ffffff;
+        }
+    }
     </style>
 </head>
 

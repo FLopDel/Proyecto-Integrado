@@ -63,7 +63,7 @@ class ValorationController extends Controller
             }
         }else{
             return response()->json([
-                'logeado' => false,
+                'logeado' => true,
                 'msg' => 'Necesitas estar registrado',
             ]);
         }
