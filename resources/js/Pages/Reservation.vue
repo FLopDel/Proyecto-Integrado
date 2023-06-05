@@ -149,7 +149,7 @@ export default {
                         if (!response.data.error) {
                             Swal({
                                 title: '¡Ha realizado su reserva!',
-                                text: 'Le esperamos',
+                                text: 'Se le enviará un correo',
                                 icon: 'success',
                                 confirmButtonClass: 'bg-sweetalert-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
                             }).then(function () {

@@ -110,9 +110,14 @@ class ReservationController extends Controller
      */
     public function mostrar()
     {
-        $comentarios = Reservation::with('user')->select('id_user', 'phone', 'date', 'time')->get();
-        return $comentarios;
+        $reservas = Reservation::with('user')
+            ->select('id_user', 'phone', 'date', 'time')
+            ->orderBy('date', 'asc')
+            ->get();
+        
+        return $reservas;
     }
+
     /**
      * Muestra todos la fecha de las reservas
      */

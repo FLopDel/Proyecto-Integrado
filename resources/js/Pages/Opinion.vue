@@ -104,10 +104,10 @@ export default {
     methods: {
         validarFormulario() {
             this.isValid = true;
-            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/.test(this.name))) {
                 this.isValid = false;
             }
-            if (this.comments === '' || (!/^[A-Za-z0-9\s]+$/.test(this.comments))) {
+            if (this.comments === '' || (!/^[A-Za-z0-9áéíóúñÁÉÍÓÚÑ.,\s]+$/.test(this.comments))) {
                 this.isValid = false;
             }
             return this.isValid;

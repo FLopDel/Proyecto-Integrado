@@ -152,13 +152,13 @@ export default {
         },
         validarFormularioNoticia() {
             this.isValid = true;
-            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/.test(this.name))) {
                 this.isValid = false;
             }
-            if (this.title === '' || (!/^[A-Za-z\s]+$/.test(this.title))) {
+            if (this.title === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/.test(this.title))) {
                 this.isValid = false;
             }
-            if (this.message === '' || (!/^[A-Za-z0-9.,\s]+$/.test(this.message))) {
+            if (this.message === '' || (!/^[A-Za-z0-9áéíóúñÁÉÍÓÚÑ.,\s]+$/.test(this.message))) {
                 this.isValid = false;
             }
 
@@ -209,7 +209,7 @@ export default {
             } else {
                 Swal({
                     title: '¡Caracteres incorrectos!',
-                    text: 'Prube nuevamente',
+                    text: 'Pruebe nuevamente',
                     icon: 'warning',
                     confirmButtonClass: 'bg-sweetalert-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
                 })

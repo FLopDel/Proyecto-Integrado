@@ -64,8 +64,8 @@
                         <th class="th">Nombre</th>
                         <th class="th">Email</th>
                         <th class="th">Telefono</th>
-                        <th class="th" @click="ordenarFecha"><button>Date</button></th>
-                        <th class="th">Time</th>
+                        <th class="th">Fecha</th>
+                        <th class="th">Hora</th>
                     </tr>
                 </thead>
                 <tbody class="block md:table-row-group">
@@ -73,8 +73,8 @@
                         <td class="td"><span class="span">Nombre</span>{{ datosReservas.user.name }}</td>
                         <td class="td"><span class="span">Email</span>{{ datosReservas.user.email }}</td>
                         <td class="td"><span class="span">Telefono</span>{{ datosReservas.phone }}</td>
-                        <td class="td"><span class="span">Date</span>{{ datosReservas.date }}</td>
-                        <td class="td"><span class="span">Time</span>{{ datosReservas.time }}</td>
+                        <td class="td"><span class="span">Fecha</span>{{ datosReservas.date }}</td>
+                        <td class="td"><span class="span">Hora</span>{{ datosReservas.time }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -212,7 +212,7 @@
         </div>
 
         <div class="m-4">
-            <h1 class="font-semibold text-2xl mb-4">Recetas</h1>
+            <h1 class="font-semibold text-2xl mb-4">Platos</h1>
             <table class="min-w-full border-collapse block md:table">
                 <thead class="block md:table-header-group">
                     <tr
@@ -526,10 +526,10 @@ export default {
         //validacion seccion
         validarFormularioSeccion() {
             this.isValidSeccion = true;
-            if (this.title === '' || (!/^[A-Za-z]+$/.test(this.title))) {
+            if (this.title === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ]+$/.test(this.title))) {
                 this.isValidSeccion = false;
             }
-            if (this.subtitle === '' || (!/^[A-Za-z]+$/.test(this.subtitle))) {
+            if (this.subtitle === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ]+$/.test(this.subtitle))) {
                 this.isValidSeccion = false;
             }
             if (this.imagen === '') {
@@ -588,11 +588,11 @@ export default {
         //validacion plato
         validarFormularioPlato() {
             this.isValidPlato = true;
-            if (this.name === '' || (!/^[A-Za-z\s]+$/.test(this.name))) {
+            if (this.name === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/.test(this.name))) {
                 this.isValidPlato = false;
                 return this.isValidPlato
             }
-            if (this.ingredients === '' || (!/^[A-Za-z]+$/.test(this.ingredients))) {
+            if (this.ingredients === '' || (!/^[A-Za-záéíóúñÁÉÍÓÚÑ,\s]+$/.test(this.ingredients))) {
                 this.isValidPlato = false;
                 return this.isValidPlato
             }

@@ -34,8 +34,8 @@ class SectionController extends Controller
         try{
 
             $validatedData = $request->validate([
-                'title' => ['required', 'regex:/[A-Za-z]+$/'],
-                'subtitle' => ['required', 'regex:/[A-Za-z]+$/'],
+                'title' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ]+$/'],
+                'subtitle' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ]+$/'],
                 'imagen' => ['required'],
             ]);
 

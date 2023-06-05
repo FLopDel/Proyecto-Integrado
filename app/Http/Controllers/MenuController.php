@@ -35,8 +35,8 @@ class MenuController extends Controller
         try{
         
             $validatedData = $request->validate([
-                'name' => ['required', 'regex:/[A-Za-z\s]+$/'],
-                'ingredients' => ['required', 'regex:/[A-Za-z]+$/'],
+                'name' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/'],
+                'ingredients' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ,\s]+$/'],
                 'id_section' => ['required'],
                 'price' => ['required','regex:/^\d+(\.\d{1,2})?$/'],
             ]);

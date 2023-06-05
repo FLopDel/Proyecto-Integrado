@@ -35,9 +35,9 @@ class BlogController extends Controller
             $userId = Auth::id();
 
             $validatedData = $request->validate([
-                'name' => ['required', 'regex:/[A-Za-z\s]+$/'],
-                'title' => ['required', 'regex:/[A-Za-z\s]+$/'],
-                'message' => ['required', 'regex:/[A-Za-z0-9.,\s]+$/'],
+                'name' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/'],
+                'title' => ['required', 'regex:/[A-Za-záéíóúñÁÉÍÓÚÑ\s]+$/'],
+                'message' => ['required', 'regex:/[A-Za-z0-9áéíóúñÁÉÍÓÚÑ.,\s]+$/'],
             ]);
 
             $blog = new Blog();
