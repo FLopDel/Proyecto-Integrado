@@ -107,7 +107,7 @@
                 </template>
 
                 <template #content class="max-[767px]:left-0">
-                  <!-- <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink> -->
+                  <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
                   <DropdownLink :href="route('logout')" method="post" as="button">
                     Cerrar Sesión
                   </DropdownLink>
